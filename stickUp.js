@@ -28,9 +28,9 @@ jQuery(
     //getting options
     var objn = 0;
     if(options != null) {
-      for(var o in options.parts) {
-        if (options.parts.hasOwnProperty(o)){
-          content[objn] = options.parts[objn];
+      for(var o in options) {
+        if (options.hasOwnProperty(o)){
+          content[objn] = options[objn];
           objn++;
         }
       }
@@ -118,3 +118,4 @@ jQuery(
   });
 
 });
+
