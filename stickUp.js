@@ -67,9 +67,11 @@ jQuery(
   $(document).on('scroll', function() {
     varscroll = parseInt($(document).scrollTop());
     if(menuSize != null){
-      for(var i=0;i < menuSize;i++)
-      {
-        contentTop[i] = $('#'+content[i]+'').offset().top;
+      $.each($('.'+itemClass), function(i,v){
+        if($($(v).attr('href')).length === 0){
+          return;
+        }
+        contentTop[i] = $($(v).attr('href')).offset().top;
         function bottomView(i) {
           contentView = $('#'+content[i]+'').height()*.4;
           testView = contentTop[i] - contentView;
@@ -89,7 +91,7 @@ jQuery(
         if(scrollDir == 'up') {
           bottomView(i);
         }
-      }
+      });
     }
 
 
@@ -118,4 +120,5 @@ jQuery(
   });
 
 });
+
 
